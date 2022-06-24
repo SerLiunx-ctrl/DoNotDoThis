@@ -3,16 +3,19 @@ package me.serliunx.DoNotDoThis.manager;
 import me.serliunx.DoNotDoThis.Main;
 import me.serliunx.DoNotDoThis.listener.Listener;
 import me.serliunx.DoNotDoThis.listener.Listeners;
+import org.bukkit.Bukkit;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListenerManager implements org.bukkit.event.Listener{
+public class ListenerManager{
     protected final Main instance;
-    private final List<Listener> listeners = new ArrayList<>();
+    private final List<Listener> listenerList = new ArrayList<>();
 
     public ListenerManager(){
         this.instance = Main.getPlugin();
+        registerListeners();
+
     }
 
     private void registerListeners(){
@@ -26,10 +29,14 @@ public class ListenerManager implements org.bukkit.event.Listener{
                 exception.printStackTrace();
             }
         }
+
+        for(Listener listener:listenerList){
+            Bukkit.getPluginManager().registerEvents(listener, instance);
+        }
     }
 
     public void registerListener(Listener listener){
-        if(!listeners.contains(listener))
-            listeners.add(listener);
+        if(!listenerList.contains(listener))
+            listenerList.add(listener);
     }
 }
