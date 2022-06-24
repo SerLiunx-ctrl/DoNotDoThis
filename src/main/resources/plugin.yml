@@ -1,0 +1,7 @@
+name: DoNotDoThis
+version: '${project.version}'
+description: 'A game plugin.'
+main: me.serliunx.DoNotDoThis.Main
+api-version: 1.17
+authors: [ SerLiunx ]
+softdepend: [PlaceholderAPI]
