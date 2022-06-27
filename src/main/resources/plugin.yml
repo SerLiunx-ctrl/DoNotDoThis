@@ -5,3 +5,7 @@ main: me.serliunx.DoNotDoThis.Main
 api-version: 1.17
 authors: [ SerLiunx ]
 softdepend: [PlaceholderAPI]
+commands:
+  donotdothis:
+    aliases: [dnd, dndt]
+    description: main command for DoNotDoThis.

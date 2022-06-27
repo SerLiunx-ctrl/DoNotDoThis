@@ -35,8 +35,12 @@ public class ListenerManager{
         }
     }
 
+    /**
+     * register a listener, will check for existing and enable or disable.
+     * @param listener a listener.
+     */
     public void registerListener(Listener listener){
-        if(!listenerList.contains(listener))
+        if(!listenerList.contains(listener) && listener.isEnable())
             listenerList.add(listener);
     }
 }
